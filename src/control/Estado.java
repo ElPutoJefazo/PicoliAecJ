@@ -82,7 +82,7 @@ public class Estado {
 		}
 
 	}
-	//holla
+	//hol
 
 	public void contratarTrabajador(ArrayDeque<Seres> demandantes, Stack<Seres> pilaTrabajador) {
 		// if(getDemanda()>factoria.getProduccion()) { /*Hay que obtener el numero
