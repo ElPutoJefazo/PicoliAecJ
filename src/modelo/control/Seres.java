@@ -11,6 +11,7 @@ public class Seres {
 	private int esperanzaVida;
 	private int NV=Constantes.NV;
 	private int ahorro;
+	private Situacion situacion;
 	
 	public Seres(long id, int edad, int ahorro) {
 		super();
@@ -26,7 +27,7 @@ public class Seres {
 		return edad;
 	}
 
-	private int getEsperanzaVida() {
+	public int getEsperanzaVida() {
 		return esperanzaVida;
 	}
 
@@ -50,10 +51,5 @@ public class Seres {
 		//TODO
 		return esperanzaVida;
 	}
-	
-	
-	
-	
-	
 	
 }

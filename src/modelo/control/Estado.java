@@ -18,6 +18,7 @@ public class Estado {
 	public int nacimientos=0;
 	private int jubilados=0;
 	private long identificador=0;
+	private long contadorMuertos=0;
 	
 	public void nacer(int nacimientos) {
 		for (int i = 0; nacimientos==i ; i++) {
@@ -27,6 +28,24 @@ public class Estado {
 	}
 	
 	private void morir() {
+		for (int i = 0; i < listaMenores.size(); i++) {
+			if(listaMenores.get(i).getEsperanzaVida()<listaMenores.get(i).getEdad()) {
+				listaMenores.remove(i);
+				contadorMuertos++;
+			}
+		}
+		for (int i = 0; i < listaAdultos.size(); i++) {
+			if(listaAdultos.get(i).getEsperanzaVida()<listaAdultos.get(i).getEdad()) {
+				listaAdultos.remove(i);
+				contadorMuertos++;
+			}
+		}
+		for (int i = 0; i < listaJubilados.size(); i++) {
+			if(listaJubilados.get(i).getEsperanzaVida()<listaJubilados.get(i).getEdad()) {
+				listaJubilados.remove(i);
+				contadorMuertos++;
+			}
+		}
 		
 	}
 	
