@@ -27,9 +27,7 @@ public class Estado {
 	}
 	
 	private void morir() {
-		for (int i = 0; i < listaMenores.size(); i++) {
-			
-		}
+		
 	}
 	
 	private void aumentarAnno() {
