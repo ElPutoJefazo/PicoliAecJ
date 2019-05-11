@@ -1,14 +1,15 @@
 package modelo.control;
 
-import java.util.ArrayList;
+
+import utilesglobal.Constantes;
 
 public class Seres {
 
 	
-	private long id=0;
+	long id=0;
 	private int edad;
 	private int esperanzaVida;
-	private int NV=365;
+	private int NV=Constantes.NV;
 	private int ahorro;
 	
 	public Seres(long id, int edad, int ahorro) {
@@ -21,7 +22,7 @@ public class Seres {
 	}
 
 
-	private int getEdad() {
+	public int getEdad() {
 		return edad;
 	}
 
@@ -42,11 +43,11 @@ public class Seres {
 	}
 	
 	private void decrementarEsperanzaVida() {
-		
+		//TODO
 	}
 	
 	private int esperanzaVidaAleatoria() {
-		
+		//TODO
 		return esperanzaVida;
 	}
 	
