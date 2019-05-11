@@ -1,6 +1,9 @@
 package modelo.control;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+
+import utilesglobal.Utilies;
 
 public class Seres {
 
@@ -10,17 +13,39 @@ public class Seres {
 	private int esperanzaVida;
 	private int NV=365;
 	private int ahorro;
+	private Situacion tipoEstado;
+	private String nombre;
+	private String[] nombresPersona = {"Juan" , "David", "Laura" , "Jose"};
+	
+	
 	
 	public Seres(long id, int edad, int ahorro) {
 		super();
-		this.id = id;
-		this.edad = edad;
-		this.ahorro = ahorro;
-		this.esperanzaVida= esperanzaVida;
-		this.NV=NV;
+		this.id = generarId();
+		this.nombre=darNombre();
+		this.edad=0;
+		this.ahorro = 0;
+		this.esperanzaVida= Utilies.obtenerAleatorio(90);
+		this.NV=365;
+		this.tipoEstado=Situacion.menor;
 	}
 
-
+	public long generarId() {
+		this.id++;
+		return  this.id;
+			
+	}
+	
+	public String darNombre() {
+		int aleatorio=Utilies.obtenerAleatorio(0, nombresPersona.length);
+		nombre= nombresPersona[aleatorio];
+		return nombre;
+		
+		
+		
+	}
+	
+	
 	private int getEdad() {
 		return edad;
 	}
