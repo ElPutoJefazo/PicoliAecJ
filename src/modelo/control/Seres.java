@@ -29,7 +29,7 @@ public class Seres {
 		this.NV=365;
 		this.tipoEstado=Situacion.menor;
 	}
-//	hola
+//	h
 
 	public long generarId() {
 		this.id++;
