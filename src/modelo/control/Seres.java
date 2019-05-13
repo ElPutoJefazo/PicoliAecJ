@@ -10,9 +10,9 @@ public class Seres {
 	
 	private long id=0;
 	private int edad;
-	private int esperanzaVida;
-	private int NV=365;
-	private int ahorro;
+	private float esperanzaVida;
+	private int NV;
+	private float ahorro;
 	private Situacion tipoEstado;
 	private String nombre;
 	private String[] nombresPersona = {"Juan" , "David", "Laura" , "Jose"};
@@ -26,10 +26,19 @@ public class Seres {
 		this.edad=0;
 		this.ahorro = 0;
 		this.esperanzaVida= Utilies.obtenerAleatorio(90);
-		this.NV=365;
+		this.NV=(int) Situacion.menor.getNivelVida();
 		this.tipoEstado=Situacion.menor;
 	}
-//	h
+	public Seres(int edad, Situacion situacion) {
+		super();
+		this.nombre = darNombre();
+		this.id = generarId();
+		this.edad = edad;
+		this.ahorro = 0;
+		this.esperanzaVida = Utilies.obtenerAleatorio(this.edad, 90);
+		this.tipoEstado = situacion;
+	}
+//	hcvbcvb
 
 	public long generarId() {
 		this.id++;
@@ -51,27 +60,60 @@ public class Seres {
 		return edad;
 	}
 
-	private int getEsperanzaVida() {
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public int getNV() {
+		return NV;
+	}
+	public void setNV(int nV) {
+		NV = nV;
+	}
+	public Situacion getTipoEstado() {
+		return tipoEstado;
+	}
+	public void setTipoEstado(Situacion tipoEstado) {
+		this.tipoEstado = tipoEstado;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String[] getNombresPersona() {
+		return nombresPersona;
+	}
+	public void setNombresPersona(String[] nombresPersona) {
+		this.nombresPersona = nombresPersona;
+	}
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+	public float getEsperanzaVida() {
 		return esperanzaVida;
 	}
 
-	private void setEsperanzaVida(int esperanzaVida) {
-		this.esperanzaVida = esperanzaVida;
+	public float setEsperanzaVida(float esperanzaNueva) {
+		return this.esperanzaVida =  esperanzaNueva;
 	}
 
-	private int getAhorro() {
+	public float getAhorro() {
 		return ahorro;
 	}
 
-	private void setAhorro(int ahorro) {
+	 public void setAhorro(float ahorro) {
 		this.ahorro = ahorro;
 	}
 	
-	private void decrementarEsperanzaVida() {
+	public void decrementarEsperanzaVida() {
 		
 	}
 	
-	private int esperanzaVidaAleatoria() {
+	public float esperanzaVidaAleatoria() {
 		
 		return esperanzaVida;
 	}
