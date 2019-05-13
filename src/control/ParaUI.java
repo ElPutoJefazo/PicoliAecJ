@@ -9,13 +9,14 @@ import vista.UI;
 
 public class ParaUI extends UI {
 
-	public void setDatosEnElInterfazUsuario(DatosPoblacion datosPoblacion,DatosEstadoLocal datosEstadoLocal,DatosEstadoGlobal datosEstadoGlobal ) {
+	public void setDatosEnElInterfazUsuario(DatosPoblacion datosPoblacion, DatosEstadoLocal datosEstadoLocal,
+			DatosEstadoGlobal datosEstadoGlobal) {
 		rellenarComunicador(comunicadorPoblacion, datosPoblacion);
 		rellenarComunicador(comunicadorEstadoLocal, datosEstadoLocal);
 		rellenarComunicador(comunicadorEstadoGlobal, datosEstadoGlobal);
 	}
-	
-	public void rellenarComunicador(Comunicador comunicador,Datos datos) {
+
+	public void rellenarComunicador(Comunicador comunicador, Datos datos) {
 		comunicador.asignarValores(datos);
 	}
 }

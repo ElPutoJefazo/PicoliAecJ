@@ -3,7 +3,7 @@ package modelo.control;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import utilesglobal.Utilies;
+import utilesglobal.Utiles;
 
 public class Seres {
 
@@ -22,7 +22,7 @@ public class Seres {
 		this.nombre = darNombre();
 		this.edad = 0;
 		this.ahorro = 0;
-		this.esperanzaVida = Utilies.obtenerAleatorio(90);
+		this.esperanzaVida = Utiles.obtenerAleatorio(90);
 		this.NV = (int) Situacion.menor.getNivelVida();
 		this.tipoEstado = Situacion.menor;
 	}
@@ -33,7 +33,7 @@ public class Seres {
 		this.id = generarId();
 		this.edad = edad;
 		this.ahorro = 0;
-		this.esperanzaVida = Utilies.obtenerAleatorio(this.edad, 90);
+		this.esperanzaVida = Utiles.obtenerAleatorio(this.edad, 90);
 		this.tipoEstado = situacion;
 	}
 
@@ -44,7 +44,7 @@ public class Seres {
 	}
 
 	public String darNombre() {
-		int aleatorio = Utilies.obtenerAleatorio(0, nombresPersona.length);
+		int aleatorio = Utiles.obtenerAleatorio(0, nombresPersona.length);
 		nombre = nombresPersona[aleatorio];
 		return nombre;
 	}

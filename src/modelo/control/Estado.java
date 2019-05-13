@@ -2,7 +2,7 @@ package modelo.control;
 
 import java.util.ArrayList;
 
-import utilesglobal.Utilies;
+import utilesglobal.Utiles;
 import org.junit.jupiter.api.Test;
 import utilesglobal.Constantes;
 
@@ -23,13 +23,13 @@ public class Estado {
 		poblacion = new ArrayList<>();
 
 		for (int i = 0; i < menoresInicial; i++) {
-			poblacion.add(new Seres(Utilies.obtenerAleatorio(0, 17), Situacion.menor));
+			poblacion.add(new Seres(Utiles.obtenerAleatorio(0, 17), Situacion.menor));
 		}
 		for (int i = 0; i < trabajadoresIncial; i++) {
-			poblacion.add(new Seres(Utilies.obtenerAleatorio(18, 65), Situacion.trabajador));
+			poblacion.add(new Seres(Utiles.obtenerAleatorio(18, 65), Situacion.trabajador));
 		}
 		for (int i = 0; i < jubiladosInicial; i++) {
-			poblacion.add(new Seres(Utilies.obtenerAleatorio(65, 90), Situacion.jubilado));
+			poblacion.add(new Seres(Utiles.obtenerAleatorio(65, 90), Situacion.jubilado));
 		}
 	}
 
@@ -76,7 +76,9 @@ public class Estado {
 	}
 
 	private void aumentarAnno() {
-		// TODO
+		for (Seres ser : poblacion) {
+			ser.setEdad(ser.getEdad() + 1);
+		}
 	}
 
 	private void incrementarProduccion() {
@@ -92,11 +94,13 @@ public class Estado {
 	}
 
 	private void pagarTrabajador() {
-		// TODO
+		for (Seres ser : listaTrabajadores) {
+			ser.setAhorro(ser.getAhorro() + ser.getTipoEstado().getSueldo());
+		}
 	}
 
 	private void annadirEmpresa() {
-		// TODO
+		empresas.add(new Empresa());
 	}
 
 	private void eliminarEmpresa() {
@@ -120,12 +124,33 @@ public class Estado {
 		}
 	}
 
-	private void crearSer() {
-		// TODO
-	}
-
 	private void CrearSituacionInicial() {
-		// TODO
+		for (int i = 0; i < 50;) {
+			Seres ser = new Seres(Utiles.obtenerAleatorio(Constantes.EDAD_NACIMIENTO, Constantes.EDAD_MAXIMA_MENOR),
+					Situacion.menor);
+			if (ser.getEdad() < ser.getEsperanzaVida()) {
+				poblacion.add(ser);
+				i++;
+			}
+		}
+		for (int i = 0; i < 100;) {
+			Seres ser = new Seres(Utiles.obtenerAleatorio(Constantes.EDAD_MINIMA_ADULTO, Constantes.EDAD_MAXIMA_ADULTO),
+					Situacion.trabajador);
+			ser.setEdad((int) (Math.random() * (65 - 18) + 18));
+			if (ser.getEdad() < ser.getEsperanzaVida()) {
+				poblacion.add(ser);
+				i++;
+			}
+		}
+		for (int i = 0; i < 30;) {
+			Seres ser = new Seres(Utiles.obtenerAleatorio(Constantes.EDAD_MINIMA_JUBILADO, Constantes.EDAD_MAXIMA),
+					Situacion.jubilado);
+			ser.setEdad((int) (Math.random() * (90 - 65) + 65));
+			if (ser.getEdad() < ser.getEsperanzaVida()) {
+				poblacion.add(ser);
+				i++;
+			}
+		}
 	}
 
 	static class TestClass {
