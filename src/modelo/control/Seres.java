@@ -12,6 +12,7 @@ public class Seres {
 	private Situacion situacion;
 	private String nombre;
 	private String[] nombresPersona = { "Juan", "David", "Laura", "Jose" };
+	private int edadInicial;
 
 	public Seres(long id, int edad, int ahorro) {
 		super();
@@ -21,7 +22,7 @@ public class Seres {
 		this.ahorro = 0;
 		this.esperanzaVida = Utilies.obtenerAleatorio(90);
 		this.NV = 365;
-		this.situacion = Situacion.menor;
+		this.setSituacion(Situacion.menor);
 	}
 
 	public long generarId() {
@@ -45,7 +46,15 @@ public class Seres {
 		return esperanzaVida;
 	}
 
-	private void setEsperanzaVida(int esperanzaVida) {
+	public Situacion getSituacion() {
+		return situacion;
+	}
+
+	public void setSituacion(Situacion situacion) {
+		this.situacion = situacion;
+	}
+
+	public void setEsperanzaVida(int esperanzaVida) {
 		this.esperanzaVida = esperanzaVida;
 	}
 
@@ -62,7 +71,7 @@ public class Seres {
 	}
 
 	private int esperanzaVidaAleatoria() {
-		// TODO
-		return esperanzaVida;
+		return Utilies.obtenerAleatorio(edadInicial, Constantes.EDAD_MAXIMA);
 	}
+
 }
